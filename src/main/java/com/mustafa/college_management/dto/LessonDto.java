@@ -20,6 +20,6 @@ public class LessonDto {
     private List<String> courseBooks;
     private String courseLanguage;
     private double courseAverage;
-    private String instructorId;
-    private String departmentId;
+    private Long instructorId;
+    private Long departmentId;
 }

@@ -23,4 +23,11 @@ public class GlobalException {
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
+    @ExceptionHandler(LessonNotFoundException.class)
+    public ProblemDetail lessonNotFoundException(StudentNotFoundException e){
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
+        problemDetail.setTitle("lesson not found!!!");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
 }
