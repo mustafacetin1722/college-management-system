@@ -17,16 +17,23 @@ public class GlobalException {
         return problemDetail;
     }
     @ExceptionHandler(DepartmentNotFoundException.class)
-    public ProblemDetail departmentNotFoundException(StudentNotFoundException e){
+    public ProblemDetail departmentNotFoundException(DepartmentNotFoundException e){
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
         problemDetail.setTitle("Department not found!!!");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
     @ExceptionHandler(LessonNotFoundException.class)
-    public ProblemDetail lessonNotFoundException(StudentNotFoundException e){
+    public ProblemDetail lessonNotFoundException(LessonNotFoundException e){
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
-        problemDetail.setTitle("lesson not found!!!");
+        problemDetail.setTitle("Lesson not found!!!");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+    @ExceptionHandler(InstructorNotFoundException.class)
+    public ProblemDetail instructorNotFoundException(InstructorNotFoundException e){
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
+        problemDetail.setTitle("Instructor not found!!!");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }

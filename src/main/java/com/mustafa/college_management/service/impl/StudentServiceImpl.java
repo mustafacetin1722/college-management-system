@@ -64,6 +64,13 @@ public class StudentServiceImpl implements StudentService {
             throw new DepartmentNotFoundException("There is no department present with this id: ");
         }
 
+        User newUser = User.builder()
+                .email(studentDto.getEmail())
+                .password(passwordEncoder.encode(studentDto.getPassword()))
+                .userRole(UserRole.STUDENT)
+                .build();
+        userRepository.save(newUser);
+
         Student student = Student.builder()
                 .firstName(studentDto.getFirstName())
                 .lastName(studentDto.getLastName())
