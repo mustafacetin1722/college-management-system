@@ -37,4 +37,11 @@ public class GlobalException {
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
+    @ExceptionHandler(FacultyNotFoundException.class)
+    public ProblemDetail facultyNotFoundException(FacultyNotFoundException e){
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
+        problemDetail.setTitle("Faculty not found!!!");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
 }

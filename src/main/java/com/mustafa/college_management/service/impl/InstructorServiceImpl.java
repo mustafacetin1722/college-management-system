@@ -10,12 +10,13 @@ import com.mustafa.college_management.repository.LessonRepository;
 import com.mustafa.college_management.repository.UserRepository;
 import com.mustafa.college_management.service.InstructorService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
+@Service
 public class InstructorServiceImpl implements InstructorService {
     private final InstructorRepository instructorRepository;
     private final DepartmentRepository departmentRepository;
