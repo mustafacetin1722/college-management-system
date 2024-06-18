@@ -21,7 +21,7 @@ public class LessonController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<LessonDto> getLessonById(@PathVariable Long id){
-        return new ResponseEntity<>(lessonService.getById(id),HttpStatus.OK)
+        return new ResponseEntity<>(lessonService.getById(id),HttpStatus.OK);
     }
     @PostMapping
     public ResponseEntity<String> addLesson(@RequestBody LessonDto lessonDto){
